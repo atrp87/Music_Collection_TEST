@@ -1,23 +1,21 @@
-# require("pry")
-
 require_relative("../model/album.rb")
-# require_relative("../models/artist.rb")
+require_relative("../model/artist.rb")
 
 Album.delete_all
-# Artist.delete_all
+Artist.delete_all
 
-  album1 = Album.new( {'title' => 'mirror mirror', 'genre' => 'metal'} )
+  artist1 = Artist.new( {'first_name' => 'Marcus', 'second_name' => 'Siepen'} )
 
-  album2 = Album.new( {'title' => 'cosmos factory', 'genre' => 'rock'} )
+  artist2 = Artist.new( {'first_name' => 'tom', 'second_name' => 'Fogerty'} )
 
-  album1.save
-  album2.save
+artist2.save
+artist1.save
 
+  album1 = Album.new( {'artist_id'=>artist1.id,'title' => 'mirror mirror', 'genre' => 'metal'} )
 
+  album2 = Album.new( {'artist_id'=>artist2.id,'title' => 'cosmos factory', 'genre' => 'rock'} )
 
-  # artist1 = Artist.new( {'first_name' => 'Marcus', 'last_name' => 'Siepen'} )
-  #
-  # artist2 = Artist.new( {'first_name' => 'tom', 'last_name' => 'Fogerty'} )
-  #
-  # artist2.save
-  # artist1.save
+album1.save
+album2.save
+
+Album.all
